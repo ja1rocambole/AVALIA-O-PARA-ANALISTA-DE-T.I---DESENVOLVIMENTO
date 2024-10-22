@@ -75,7 +75,7 @@ console.log(maskFromCEP(cep));
 ```
 
 ## Validação
-Cada função verifica se a string de entrada contém o número correto de dígitos e retorna uma mensagem caso a entrada seja muito curta ou muito longa.
+Cada função verifica se a string de entrada contém o número correto de dígitos e retorna uma mensagem caso a entrada seja muito curta ou muito longa ou não seja valida.
 
 Por exemplo:
 

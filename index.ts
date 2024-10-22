@@ -76,18 +76,35 @@ export const maskFromCPF = (cpf: string) => {
 
 export const maskFromCNPJ = (cnpj: string) => {
     const cleanCNPJ = cnpj.replace(/\D/g, '');
+
     if (cleanCNPJ.length !== 14) {
         return cleanCNPJ.length < 14 ? "CNPJ muito curto." : "CNPJ muito longo.";
     }
 
-    const cnpjFomated = cleanCNPJ
+    const b = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    const c = cleanCNPJ.split('').map(Number);
+
+
+    let n = 0;
+    for (let i = 0; i < 12; i++) {
+        n += c[i] * b[i + 1];
+    }
+    if (c[12] !== (((n %= 11) < 2) ? 0 : 11 - n)) return "CNPJ inválido.";
+
+    n = 0;
+    for (let i = 0; i <= 12; i++) {
+        n += c[i] * b[i];
+    }
+    if (c[13] !== (((n %= 11) < 2) ? 0 : 11 - n)) return "CNPJ inválido.";
+
+    const cnpjFormatted = cleanCNPJ
         .replace(/(\d{2})(\d)/, '$1.$2')
         .replace(/(\d{3})(\d)/, '$1.$2')
         .replace(/(\d{3})(\d)/, '$1/$2')
         .replace(/(\d{4})(\d)/, '$1-$2')
         .replace(/(-\d{2})\d+?$/, '$1');
 
-    return cnpjFomated;
+    return cnpjFormatted;
 }
 
 

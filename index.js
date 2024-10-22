@@ -68,13 +68,30 @@ const maskFromCNPJ = (cnpj) => {
     if (cleanCNPJ.length !== 14) {
         return cleanCNPJ.length < 14 ? "CNPJ muito curto." : "CNPJ muito longo.";
     }
-    const cnpjFomated = cleanCNPJ
+    const b = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    const c = cleanCNPJ.split('').map(Number); // Converte os caracteres para números
+    // Validação do primeiro dígito verificador
+    let n = 0; // Inicializa n
+    for (let i = 0; i < 12; i++) {
+        n += c[i] * b[i + 1];
+    }
+    if (c[12] !== (((n %= 11) < 2) ? 0 : 11 - n))
+        return "CNPJ inválido.";
+    // Validação do segundo dígito verificador
+    n = 0; // Reinicia n para o segundo cálculo
+    for (let i = 0; i <= 12; i++) {
+        n += c[i] * b[i];
+    }
+    if (c[13] !== (((n %= 11) < 2) ? 0 : 11 - n))
+        return "CNPJ inválido.";
+    // Aplica a máscara ao CNPJ
+    const cnpjFormatted = cleanCNPJ
         .replace(/(\d{2})(\d)/, '$1.$2')
         .replace(/(\d{3})(\d)/, '$1.$2')
         .replace(/(\d{3})(\d)/, '$1/$2')
         .replace(/(\d{4})(\d)/, '$1-$2')
         .replace(/(-\d{2})\d+?$/, '$1');
-    return cnpjFomated;
+    return cnpjFormatted;
 };
 exports.maskFromCNPJ = maskFromCNPJ;
 const maskFromCEP = (cep) => {
@@ -88,3 +105,6 @@ const maskFromCEP = (cep) => {
     return cepFomated;
 };
 exports.maskFromCEP = maskFromCEP;
+console.log((0, exports.maskFromCNPJ)("68745470"));
+console.log((0, exports.maskFromCNPJ)("87306724000146"));
+console.log((0, exports.maskFromCNPJ)("31715412000131"));
