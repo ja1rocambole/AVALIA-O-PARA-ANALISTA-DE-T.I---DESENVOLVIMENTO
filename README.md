@@ -24,8 +24,10 @@ Você pode instalar este pacote usando npm:
 npm i @ja1rocambole/ava-analista-ti-joao-fernandes
 ```
 
+
 Para testar o código basta transpilar o código
-````
+
+```
 npx tsc 
 ```
  
