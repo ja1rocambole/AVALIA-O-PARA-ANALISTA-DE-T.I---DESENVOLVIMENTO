@@ -4,17 +4,41 @@
 
 ## Instalação
 
-Você pode instalar este pacote usando npm:
+Inicialize um novo projeto npm no diretório:
+```
+npm init -y
+```
 
-```bash
-npm install avalia-o-para-analista-de-t.i---desenvolvimento
+Instale o typescript
+```
+npm install typescript --save-dev
+```
+
+Inicie o arquivo de configuração do typescript
+```
+npx tsc --init
+```
+
+Você pode instalar este pacote usando npm:
+```
+npm i @ja1rocambole/ava-analista-ti-joao-fernandes
+```
+
+Para testar o código basta transpilar o código
+````
+npx tsc 
+```
+ 
+E depois execultar
+```
+node arquivo.js
 ```
 
 ## Uso
 #### Máscara para Números de Telefone
 
 ```
-import { maskFromPhoneNumber } from 'avalia-o-para-analista-de-t.i---desenvolvimento';
+import { maskFromPhoneNumber } from '@ja1rocambole/ava-analista-ti-joao-fernandes';
 
 const phone = "91987044516";
 console.log(maskFromPhoneNumber(phone)); 
@@ -23,7 +47,7 @@ console.log(maskFromPhoneNumber(phone));
 
 #### Máscara para CNPJ
 ```
-import { maskFromCNPJ } from 'avalia-o-para-analista-de-t.i---desenvolvimento';
+import { maskFromCNPJ } from '@ja1rocambole/ava-analista-ti-joao-fernandes';
 
 const cnpj = "61204974000181";
 console.log(maskFromCNPJ(cnpj)); 
@@ -32,7 +56,7 @@ console.log(maskFromCNPJ(cnpj));
 
 #### Máscara para CPF
 ```
-import { maskFromCPF } from 'avalia-o-para-analista-de-t.i---desenvolvimento';
+import { maskFromCPF } from '@ja1rocambole/ava-analista-ti-joao-fernandes';
 
 const cpf = "05112084219";
 console.log(maskFromCPF(cpf)); 
@@ -41,7 +65,7 @@ console.log(maskFromCPF(cpf));
 
 #### Máscara para CEP
 ```
-import { maskFromCEP } from 'avalia-o-para-analista-de-t.i---desenvolvimento';
+import { maskFromCEP } from '@ja1rocambole/ava-analista-ti-joao-fernandes';
 
 const cep = "68745470";
 console.log(maskFromCEP(cep)); 
