@@ -1,4 +1,5 @@
 
+
 export const maskFromPhoneNumber = (phoneNumber: string) => {
     const cleanPhone = phoneNumber.replace(/\D/g, '');
     if (cleanPhone.length !== 11) {

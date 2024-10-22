@@ -5,15 +5,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ja1rocambole/AVALIA-O-PARA-ANALISTA-DE-T.I---DESENVOLVIMENTO.git"
   },
+
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ja1rocambole/AVALIA-O-PARA-ANALISTA-DE-T.I---DESENVOLVIMENTO/issues"
   },
+  
   "homepage": "https://github.com/ja1rocambole/AVALIA-O-PARA-ANALISTA-DE-T.I---DESENVOLVIMENTO#readme",
   "description": "",
   "devDependencies": {
